@@ -101,29 +101,52 @@ finance-control/
 
 ---
 
+## ⚡ Documentação Interativa da API (Swagger / OpenAPI 3)
+
+Com o backend em execução, acesse a documentação interativa e faça testes de endpoints protegidos (via JWT Bearer Token) diretamente pelo navegador:
+
+📌 **Swagger UI**: [http://localhost:8081/swagger-ui.html](http://localhost:8081/swagger-ui.html)  
+📌 **OpenAPI JSON Spec**: `http://localhost:8081/v3/api-docs`
+
+---
+
 ## 🚀 Como Executar o Projeto
 
-### Pré-requisitos
-- **Java 17+** e **Maven** instalado
-- **Node.js 18+** e **npm**
-- Instância do **PostgreSQL** rodando localmente (ou via Docker)
+### 🐳 Opção 1: Execução Rápida em 1-Clique via Docker Compose (Recomendado)
 
-### 1. Configurar o Banco de Dados
-Crie um banco de dados PostgreSQL com o nome `finance_db`:
-```sql
-CREATE DATABASE finance_db;
+Requer apenas o **Docker** e **Docker Compose** instalados:
+
+```bash
+# Na raiz do projeto finance-control
+docker compose up -d --build
 ```
 
-*(Se o usuário/senha do seu PostgreSQL for diferente de `postgres/postgres`, ajuste no arquivo `backend/src/main/resources/application.properties`)*.
+Isso inicializará automaticamente:
+- 🐘 **PostgreSQL 15** em `localhost:5432`
+- ☕ **Backend Spring Boot 3** em `http://localhost:8081`
+- ⚛️ **Frontend React + Nginx** em `http://localhost` (ou `http://localhost:5173`)
 
-### 2. Executar o Backend
+Para parar a aplicação:
+```bash
+docker compose down
+```
+
+---
+
+### 🛠️ Opção 2: Execução Manual para Desenvolvimento
+
+#### Pré-requisitos
+- **Java 17+** e **Maven**
+- **Node.js 18+** e **npm**
+
+#### 1. Executar o Backend
 ```bash
 cd backend
 ./mvnw spring-boot:run
 ```
-O backend iniciará na porta `8081` e o Flyway criará automaticamente todas as tabelas necessárias.
+O backend iniciará na porta `8081` usando banco de dados H2 local em `./data/finance_db`.
 
-### 3. Executar o Frontend
+#### 2. Executar o Frontend
 ```bash
 cd frontend
 npm install
