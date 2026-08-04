@@ -1,0 +1,18 @@
+{
+  "short_name": "FinanceControl",
+  "name": "FinanceControl - ERP Financeiro Pessoal",
+  "description": "Controle financeiro profissional pessoal e empresarial com painéis dinâmicos e simuladores.",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "display": "standalone",
+  "orientation": "portrait"
+}
