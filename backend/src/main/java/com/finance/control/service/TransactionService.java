@@ -32,11 +32,13 @@ public class TransactionService {
             Pageable pageable
     ) {
         User user = userService.getCurrentUser();
+        String searchPattern = (search != null && !search.trim().isEmpty()) ? "%" + search.trim() + "%" : null;
         Page<Transaction> page = transactionRepository.findAllFiltered(
-                user.getId(), type, status, categoryId, startDate, endDate, search, pageable
+                user.getId(), type, status, categoryId, startDate, endDate, searchPattern, pageable
         );
         return page.map(this::toResponse);
     }
+
 
     public TransactionResponse getTransaction(Long id) {
         User user = userService.getCurrentUser();
