@@ -26,7 +26,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
            "AND (:categoryId IS NULL OR t.category.id = :categoryId) " +
            "AND (:startDate IS NULL OR t.date >= :startDate) " +
            "AND (:endDate IS NULL OR t.date <= :endDate) " +
-           "AND (:search IS NULL OR LOWER(t.description) LIKE LOWER(CONCAT('%', :search, '%')))")
+           "AND (cast(:search as String) IS NULL OR cast(:search as String) = '' OR LOWER(t.description) LIKE LOWER(CONCAT('%', cast(:search as String), '%')))")
     Page<Transaction> findAllFiltered(
             @Param("userId") Long userId,
             @Param("type") TransactionType type,
@@ -37,6 +37,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
             @Param("search") String search,
             Pageable pageable
     );
+
 
     // For CSV export - same filters but no pagination
     @Query("SELECT t FROM Transaction t WHERE t.user.id = :userId " +
