@@ -3,11 +3,20 @@
 > **FinanceControl** é uma aplicação Full Stack moderna de controle financeiro pessoal, inspirada na simplicidade e praticidade de uma planilha do Excel, combinada com a elegância de dashboards como Notion, Linear, Stripe e Vercel.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Spring Boot](https://img.shields.io/badge/Backend-Java%2017%20%7C%20Spring%20Boot%203-brightgreen)
-![React](https://img.shields.io/badge/Frontend-React%2018%20%7C%20TypeScript-blue)
-![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL%20%7C%20Flyway-blue)
+![Frontend Vercel](https://img.shields.io/badge/Frontend-Vercel%20%7C%20Live-brightgreen)
+![Backend Render](https://img.shields.io/badge/Backend-Render%20%7C%20Spring%20Boot%203-blue)
+![Database Neon](https://img.shields.io/badge/Database-Neon.tech%20%7C%20PostgreSQL-darkblue)
 
 ---
+
+## 🌐 Links de Produção
+
+- 🔗 **Aplicação Web (Frontend)**: [finance-control-eight-pi.vercel.app](https://finance-control-eight-pi.vercel.app/login)
+- ⚙️ **API RESTful (Backend)**: [finance-control-backend-jhdf.onrender.com](https://finance-control-backend-jhdf.onrender.com)
+- 📜 **Documentação Swagger UI**: [finance-control-backend-jhdf.onrender.com/swagger-ui.html](https://finance-control-backend-jhdf.onrender.com/swagger-ui.html)
+
+---
+
 
 ## 📌 Visão Geral
 
