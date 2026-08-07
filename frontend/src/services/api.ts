@@ -1,8 +1,20 @@
 import axios from 'axios';
 
-// Dynamically use the current hostname (e.g. 192.168.18.13 when on mobile Wi-Fi, or localhost when on PC)
-const currentHost = typeof window !== 'undefined' ? window.location.hostname : 'localhost';
-const API_URL = import.meta.env.VITE_API_URL || `http://${currentHost}:8081/api`;
+// Dynamically determine API URL based on environment or current hostname
+const getBaseUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  if (typeof window !== 'undefined') {
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1' || host.startsWith('192.168.') || host.startsWith('10.')) {
+      return `http://${host}:8081/api`;
+    }
+  }
+  return 'https://finance-control-backend-jhdf.onrender.com/api';
+};
+
+const API_URL = getBaseUrl();
 
 const api = axios.create({
   baseURL: API_URL,
