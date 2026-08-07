@@ -39,6 +39,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     setToken(authData.token);
     setUser(userData);
+    window.location.href = '/';
   };
 
   const logout = () => {
